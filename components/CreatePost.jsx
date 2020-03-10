@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import db from "../firebase";
 import { PageHeader, Input, Button } from "antd";
+import { navigate } from "@reach/router";
 const { TextArea } = Input;
 
 const CreatePost = props => {
@@ -19,6 +20,10 @@ const CreatePost = props => {
     postRef.add(payload).then(function(doc) {
       console.log("Document Successfully Written!", doc.id);
     });
+
+    setTitle("");
+    setContent("");
+    navigate("/posts/");
   };
   return (
     <div className="create_post_container">

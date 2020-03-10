@@ -4,6 +4,7 @@ import api from "../mock_api.js";
 import _ from "lodash";
 import db from "../firebase";
 import { PageHeader, Card } from "antd";
+import { navigate } from "@reach/router";
 
 function Posts(props) {
   const [posts, setPosts] = useState([]);
@@ -41,7 +42,7 @@ function Posts(props) {
               key={idx}
               id={article.id}
               title={article.title}
-              content={article.content.substring(1, 1000)}
+              content={article.content.substring(1, 900)}
             />
           );
         })}
