@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PostSnippet from "./PostSnippet.jsx";
-import api from "../mock_api.js";
 import _ from "lodash";
 import db from "../firebase";
 import { PageHeader, Card } from "antd";
-import { navigate } from "@reach/router";
 
 function Posts(props) {
   const [posts, setPosts] = useState([]);
@@ -41,7 +39,7 @@ function Posts(props) {
             <PostSnippet
               key={idx}
               id={article.id}
-              title={article.title}
+              title={_.capitalize(article.title)}
               content={article.content.substring(1, 900)}
             />
           );
